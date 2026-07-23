@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Special Surprise 🎁 hello </title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎁 Surprise</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>🎉 Click the button for a surprise!</h1>
+<div id="overlay">
+    <h1>🎁 You have received a surprise!</h1>
+    <p>Touch anywhere to open it.</p>
+</div>
 
-<button onclick="playAudio()">
-    Click Me
-</button>
+<video id="prankVideo" preload="auto" playsinline>
+    <source src="prank.mp4" type="video/mp4">
+</video>
 
-<audio id="prankAudio">
+<audio id="prankAudio" preload="auto">
     <source src="prank.mp3" type="audio/mpeg">
 </audio>
 
