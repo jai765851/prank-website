@@ -1,34 +1,16 @@
-const overlay = document.getElementById("overlay");
-const video = document.getElementById("prankVideo");
+const background = document.getElementById("background");
 const audio = document.getElementById("prankAudio");
+const overlay = document.getElementById("overlay");
 
 function startPrank(){
 
     overlay.style.display="none";
-    video.style.display="block";
+    background.style.display="block";
 
-    video.currentTime=0;
-    audio.currentTime=0;
+    audio.play();
 
-    // Keep both in sync
-    video.muted = true;
-
-    Promise.all([
-        video.play(),
-        audio.play()
-    ]).catch(err=>{
-        console.log(err);
-    });
-
-    if(document.documentElement.requestFullscreen){
-        document.documentElement.requestFullscreen().catch(()=>{});
-    }
+    document.documentElement.requestFullscreen().catch(()=>{});
 }
 
 document.addEventListener("click",startPrank,{once:true});
 document.addEventListener("touchstart",startPrank,{once:true});
-
-video.addEventListener("ended",()=>{
-    audio.pause();
-    audio.currentTime=0;
-});
